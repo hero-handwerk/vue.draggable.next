@@ -4796,7 +4796,13 @@ var draggableComponent = Object(external_commonjs_vue_commonjs2_vue_root_Vue_["d
     var $attrs = this.$attrs,
         $el = this.$el,
         componentStructure = this.componentStructure;
-    componentStructure.updated();
+    componentStructure.updated(); // Prevent selecting text when use drag and drop
+
+    $el.addEventListener("selectstart", function (e) {
+      console["a" /* console */].log("e", e);
+      console["a" /* console */].log("target", e.traget);
+      e.preventDefault();
+    });
     var sortableOptions = createSortableOption({
       $attrs: $attrs,
       callBackBuilder: {
@@ -4928,13 +4934,7 @@ var draggableComponent = Object(external_commonjs_vue_commonjs2_vue_root_Vue_["d
     onDragStart: function onDragStart(evt) {
       this.context = this.getUnderlyingVm(evt.item);
       evt.item._underlying_vm_ = this.clone(this.context.element);
-      draggingElement = evt.item; // Prevent selecting text when use drag and drop
-
-      draggingElement.addEventListener("selectstart", function (e) {
-        console["a" /* console */].log("e", e);
-        console["a" /* console */].log("draggingelement", draggingElement);
-        e.preventDefault();
-      });
+      draggingElement = evt.item;
     },
     onDragAdd: function onDragAdd(evt) {
       var element = evt.item._underlying_vm_;
