@@ -128,7 +128,13 @@ const draggableComponent = defineComponent({
     $el.addEventListener("selectstart", e => {
       console.log("e", e);
       console.log("target", e.target);
-      if(e.target === "div.document-node-tree") {
+      console.log("parentNode", e.target.parentNode);
+      console.log("offsetParent", e.target.parentNode.offsetParent);
+      let productFromSearch = e.target.parentNode.offsetParent === "anglular-ui-tree-node";
+      let handleBar = e.target.className = "handle bar-draggable";
+      console.log("productFromSearch", productFromSearch);
+      console.log("handleBar", handleBar);
+      if(productFromSearch || handleBar) {
         e.preventDefault();
       }
     });
