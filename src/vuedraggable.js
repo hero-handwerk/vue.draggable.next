@@ -232,13 +232,6 @@ const draggableComponent = defineComponent({
     },
 
     onDragStart(evt) {
-      const { $el } = this;
-      $el.addeventlistener("selectstart", e => {
-        console.log("e", e);
-        console.log("draggingelement", $el);
-        e.preventdefault();
-      });
-
       this.context = this.getUnderlyingVm(evt.item);
       evt.item._underlying_vm_ = this.clone(this.context.element);
       draggingElement = evt.item;
