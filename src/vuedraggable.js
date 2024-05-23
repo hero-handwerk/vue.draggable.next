@@ -128,9 +128,9 @@ const draggableComponent = defineComponent({
     $el.addEventListener("selectstart", e => {
       console.log("e", e);
       console.log("target", e.target);
-      console.log("parentNode", e.target.parentNode);
-      console.log("offsetParent", e.target.parentNode.offsetParent);
-      let productFromSearch = e.target.parentNode.offsetParent.className === "anglular-ui-tree-node";
+      console.log("parentNode.classname", e.target.parentNode.className);
+      console.log("offsetParent.classname", e.target.parentNode.offsetParent.className);
+      let productFromSearch = e.target.parentNode.offsetParent.className === "angular-ui-tree-node";
       let handleBar = e.target.className === "handle bar-draggable";
       console.log("productFromSearch", productFromSearch);
       console.log("handleBar", handleBar);

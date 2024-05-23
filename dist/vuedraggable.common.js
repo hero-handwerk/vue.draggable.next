@@ -4801,9 +4801,9 @@ var draggableComponent = Object(external_commonjs_vue_commonjs2_vue_root_Vue_["d
     $el.addEventListener("selectstart", function (e) {
       console["a" /* console */].log("e", e);
       console["a" /* console */].log("target", e.target);
-      console["a" /* console */].log("parentNode", e.target.parentNode);
-      console["a" /* console */].log("offsetParent", e.target.parentNode.offsetParent);
-      var productFromSearch = e.target.parentNode.offsetParent.className === "anglular-ui-tree-node";
+      console["a" /* console */].log("parentNode.classname", e.target.parentNode.className);
+      console["a" /* console */].log("offsetParent.classname", e.target.parentNode.offsetParent.className);
+      var productFromSearch = e.target.parentNode.offsetParent.className === "angular-ui-tree-node";
       var handleBar = e.target.className === "handle bar-draggable";
       console["a" /* console */].log("productFromSearch", productFromSearch);
       console["a" /* console */].log("handleBar", handleBar);
