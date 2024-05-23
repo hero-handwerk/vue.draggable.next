@@ -130,7 +130,7 @@ const draggableComponent = defineComponent({
       console.log("target", e.target);
       console.log("parentNode.classname", e.target.parentNode.className);
       console.log("offsetParent.classname", e.target.parentNode.offsetParent.className);
-      let productFromSearch = e.target.parentNode.offsetParent.className === "angular-ui-tree-node";
+      let productFromSearch = e.target.parentNode.offsetParent.className.contains('sortable-chosen');
       let handleBar = e.target.className === "handle bar-draggable";
       console.log("productFromSearch", productFromSearch);
       console.log("handleBar", handleBar);
