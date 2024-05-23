@@ -4926,13 +4926,20 @@ var draggableComponent = Object(external_commonjs_vue_commonjs2_vue_root_Vue_["d
       return this.componentStructure.getVmIndexFromDomIndex(domIndex, this.targetDomElement);
     },
     onDragStart: function onDragStart(evt) {
-      // const { $el } = this;
+      var $el = this.$el;
+      $el.addeventlistener("selectstart", function (e) {
+        console["a" /* console */].log("e", e);
+        console["a" /* console */].log("draggingelement", $el);
+        e.preventdefault();
+      });
       this.context = this.getUnderlyingVm(evt.item);
       evt.item._underlying_vm_ = this.clone(this.context.element);
       draggingElement = evt.item; // Prevent selecting text when use drag and drop
 
-      draggingElement.addEventListener("selectstart", function (e) {
-        e.preventDefault();
+      draggingElement.addeventlistener("selectstart", function (e) {
+        console["a" /* console */].log("e", e);
+        console["a" /* console */].log("draggingelement", draggingElement);
+        e.preventdefault();
       });
     },
     onDragAdd: function onDragAdd(evt) {
