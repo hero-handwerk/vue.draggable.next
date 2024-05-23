@@ -124,10 +124,6 @@ const draggableComponent = defineComponent({
     const { $attrs, $el, componentStructure } = this;
     componentStructure.updated();
 
-    $el.addEventListener("selectstart", e => {
-      console.log(e);
-    });
-
     const sortableOptions = createSortableOption({
       $attrs,
       callBackBuilder: {
@@ -244,7 +240,7 @@ const draggableComponent = defineComponent({
       draggingElement.addEventListener("selectstart", e => {
         console.log("e", e);
         console.log("draggingelement", draggingElement);
-        e.preventdefault();
+        e.preventDefault();
       });
     },
 
