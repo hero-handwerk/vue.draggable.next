@@ -127,8 +127,10 @@ const draggableComponent = defineComponent({
     // Prevent selecting text when use drag and drop
     $el.addEventListener("selectstart", e => {
       console.log("e", e);
-      console.log("target", e.traget);
-      e.preventDefault();
+      console.log("target", e.target);
+      if(e.target === "div.document-node-tree") {
+        e.preventDefault();
+      }
     });
     const sortableOptions = createSortableOption({
       $attrs,

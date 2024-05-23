@@ -97,5 +97,5 @@
     "types/*",
     "src/*"
   ],
-  "module": "dist/vuedraggable.umd.js"
+  "module": "src/vuedraggable.js"
 }

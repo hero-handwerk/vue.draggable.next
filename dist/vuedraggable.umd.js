@@ -4809,8 +4809,11 @@ var draggableComponent = Object(external_commonjs_vue_commonjs2_vue_root_Vue_["d
 
     $el.addEventListener("selectstart", function (e) {
       console["a" /* console */].log("e", e);
-      console["a" /* console */].log("target", e.traget);
-      e.preventDefault();
+      console["a" /* console */].log("target", e.target);
+
+      if (e.target === "div.document-node-tree") {
+        e.preventDefault();
+      }
     });
     var sortableOptions = createSortableOption({
       $attrs: $attrs,
