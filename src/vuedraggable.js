@@ -130,8 +130,8 @@ const draggableComponent = defineComponent({
       console.log("target", e.target);
       console.log("parentNode", e.target.parentNode);
       console.log("offsetParent", e.target.parentNode.offsetParent);
-      let productFromSearch = e.target.parentNode.offsetParent === "anglular-ui-tree-node";
-      let handleBar = e.target.className = "handle bar-draggable";
+      let productFromSearch = e.target.parentNode.offsetParent.className === "anglular-ui-tree-node";
+      let handleBar = e.target.className === "handle bar-draggable";
       console.log("productFromSearch", productFromSearch);
       console.log("handleBar", handleBar);
       if(productFromSearch || handleBar) {
