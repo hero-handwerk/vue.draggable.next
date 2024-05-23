@@ -4826,8 +4826,10 @@ var draggableComponent = Object(external_commonjs_vue_commonjs2_vue_root_Vue_["d
     componentStructure.updated(); // Prevent selecting text when use drag and drop when using a draghandle or an item from the productseach
 
     $el.addEventListener("selectstart", function (e) {
+      var _e$target$parentNode$;
+
       console["a" /* console */].log("e", e);
-      var isProductFromSearch = e.target.parentNode.offsetParent.className.includes('sortable-chosen');
+      var isProductFromSearch = (_e$target$parentNode$ = e.target.parentNode.offsetParent) === null || _e$target$parentNode$ === void 0 ? void 0 : _e$target$parentNode$.className.includes('sortable-chosen');
       var isHandleBar = e.target.className === "handle bar-draggable";
 
       if (isProductFromSearch || isHandleBar) {
@@ -4963,21 +4965,9 @@ var draggableComponent = Object(external_commonjs_vue_commonjs2_vue_root_Vue_["d
       return this.componentStructure.getVmIndexFromDomIndex(domIndex, this.targetDomElement);
     },
     onDragStart: function onDragStart(evt) {
-      var $el = this.$el;
-      $el.addeventlistener("selectstart", function (e) {
-        console["a" /* console */].log("e", e);
-        console["a" /* console */].log("draggingelement", $el);
-        e.preventdefault();
-      });
       this.context = this.getUnderlyingVm(evt.item);
       evt.item._underlying_vm_ = this.clone(this.context.element);
-      draggingElement = evt.item; // Prevent selecting text when use drag and drop
-
-      draggingElement.addeventlistener("selectstart", function (e) {
-        console["a" /* console */].log("e", e);
-        console["a" /* console */].log("draggingelement", draggingElement);
-        e.preventdefault();
-      });
+      draggingElement = evt.item;
     },
     onDragAdd: function onDragAdd(evt) {
       var element = evt.item._underlying_vm_;

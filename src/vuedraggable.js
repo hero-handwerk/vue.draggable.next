@@ -127,7 +127,7 @@ const draggableComponent = defineComponent({
     // Prevent selecting text when use drag and drop when using a draghandle or an item from the productseach
     $el.addEventListener("selectstart", e => {
       console.log("e", e);
-      const isProductFromSearch = e.target.parentNode.offsetParent.className.includes('sortable-chosen');
+      const isProductFromSearch = e.target.parentNode.offsetParent?.className.includes('sortable-chosen');
       const isHandleBar = e.target.className === "handle bar-draggable";
       if(isProductFromSearch || isHandleBar) {
         e.preventDefault();
@@ -241,22 +241,9 @@ const draggableComponent = defineComponent({
     },
 
     onDragStart(evt) {
-      const { $el } = this;
-      $el.addeventlistener("selectstart", e => {
-        console.log("e", e);
-        console.log("draggingelement", $el);
-        e.preventdefault();
-      });
-
       this.context = this.getUnderlyingVm(evt.item);
       evt.item._underlying_vm_ = this.clone(this.context.element);
       draggingElement = evt.item;
-      // Prevent selecting text when use drag and drop
-      draggingElement.addeventlistener("selectstart", e => {
-        console.log("e", e);
-        console.log("draggingelement", draggingElement);
-        e.preventdefault();
-      });
     },
 
     onDragAdd(evt) {
