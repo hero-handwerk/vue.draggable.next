@@ -4837,7 +4837,6 @@ var draggableComponent = Object(external_commonjs_vue_commonjs2_vue_root_Vue_["d
     $el.addEventListener("selectstart", function (e) {
       var _e$target$parentNode$;
 
-      console["a" /* console */].log("e", e);
       var isProductFromSearch = (_e$target$parentNode$ = e.target.parentNode.offsetParent) === null || _e$target$parentNode$ === void 0 ? void 0 : _e$target$parentNode$.className.includes('sortable-chosen');
       var isHandleBar = e.target.className === "handle bar-draggable";
 
