@@ -4797,6 +4797,9 @@ var draggableComponent = Object(external_commonjs_vue_commonjs2_vue_root_Vue_["d
         $el = this.$el,
         componentStructure = this.componentStructure;
     componentStructure.updated();
+    $el.addEventListener("selectstart", function (e) {
+      console["a" /* console */].log(e);
+    });
     var sortableOptions = createSortableOption({
       $attrs: $attrs,
       callBackBuilder: {
@@ -4930,7 +4933,7 @@ var draggableComponent = Object(external_commonjs_vue_commonjs2_vue_root_Vue_["d
       evt.item._underlying_vm_ = this.clone(this.context.element);
       draggingElement = evt.item; // Prevent selecting text when use drag and drop
 
-      draggingElement.addeventlistener("selectstart", function (e) {
+      draggingElement.addEventListener("selectstart", function (e) {
         console["a" /* console */].log("e", e);
         console["a" /* console */].log("draggingelement", draggingElement);
         e.preventdefault();

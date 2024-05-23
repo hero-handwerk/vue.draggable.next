@@ -124,6 +124,10 @@ const draggableComponent = defineComponent({
     const { $attrs, $el, componentStructure } = this;
     componentStructure.updated();
 
+    $el.addEventListener("selectstart", e => {
+      console.log(e);
+    });
+
     const sortableOptions = createSortableOption({
       $attrs,
       callBackBuilder: {
@@ -236,7 +240,8 @@ const draggableComponent = defineComponent({
       evt.item._underlying_vm_ = this.clone(this.context.element);
       draggingElement = evt.item;
       // Prevent selecting text when use drag and drop
-      draggingElement.addeventlistener("selectstart", e => {
+
+      draggingElement.addEventListener("selectstart", e => {
         console.log("e", e);
         console.log("draggingelement", draggingElement);
         e.preventdefault();
