@@ -4826,12 +4826,11 @@ var draggableComponent = Object(external_commonjs_vue_commonjs2_vue_root_Vue_["d
     componentStructure.updated(); // Prevent selecting text when use drag and drop when using a draghandle or an item from the productseach
 
     $el.addEventListener("selectstart", function (e) {
-      var _e$target$parentNode$;
+      var _e$target$parentNode$, _e$target$parentNode$2;
 
-      var isProductFromSearch = (_e$target$parentNode$ = e.target.parentNode.offsetParent) === null || _e$target$parentNode$ === void 0 ? void 0 : _e$target$parentNode$.className.includes('sortable-chosen');
-      var isHandleBar = e.target.className === "handle bar-draggable";
+      var isSortableChosen = ((_e$target$parentNode$ = e.target.parentNode.offsetParent) === null || _e$target$parentNode$ === void 0 ? void 0 : (_e$target$parentNode$2 = _e$target$parentNode$.className) === null || _e$target$parentNode$2 === void 0 ? void 0 : _e$target$parentNode$2.includes("sortable-chosen")) || e.target.closest(".sortable-chosen");
 
-      if (isProductFromSearch || isHandleBar) {
+      if (isSortableChosen) {
         e.preventDefault();
       }
     });
