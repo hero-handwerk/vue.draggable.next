@@ -4837,10 +4837,14 @@ var draggableComponent = Object(external_commonjs_vue_commonjs2_vue_root_Vue_["d
     $el.addEventListener("selectstart", function (e) {
       var _e$target$parentNode$;
 
-      var isProductFromSearch = (_e$target$parentNode$ = e.target.parentNode.offsetParent) === null || _e$target$parentNode$ === void 0 ? void 0 : _e$target$parentNode$.className.includes('sortable-chosen');
+      var isProductFromSearch = (_e$target$parentNode$ = e.target.parentNode.offsetParent) === null || _e$target$parentNode$ === void 0 ? void 0 : _e$target$parentNode$.className.includes("sortable-chosen");
       var isHandleBar = e.target.className === "handle bar-draggable";
+      var parentTest = e.target.closest(".handle .bar-draggable");
+      var parentTest2 = e.target.closest(".sortable-chosen");
+      console["a" /* console */].log("parentTest2", parentTest2);
+      console["a" /* console */].log("parentTest", parentTest);
 
-      if (isProductFromSearch || isHandleBar) {
+      if (parentTest || parentTest2) {
         e.preventDefault();
       }
     });
