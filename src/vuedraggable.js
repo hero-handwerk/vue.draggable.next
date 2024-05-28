@@ -129,7 +129,8 @@ const draggableComponent = defineComponent({
       const isSortableChosen =
         e.target.parentNode.offsetParent?.className?.includes(
           "sortable-chosen"
-        ) || e.target.closest(".sortable-chosen");
+        ) ||
+        (e.target.closest && e.target.closest(".sortable-chosen"));
       if (isSortableChosen) {
         e.preventDefault();
       }
