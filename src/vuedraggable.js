@@ -126,12 +126,11 @@ const draggableComponent = defineComponent({
 
     // Prevent selecting text when use drag and drop when using a draghandle or an item from the productseach
     $el.addEventListener("selectstart", e => {
-      const isSortableChosen =
-        e.target.parentNode.offsetParent?.className?.includes(
-          "sortable-chosen"
-        ) ||
-        (e.target.closest && e.target.closest(".sortable-chosen"));
-      if (isSortableChosen) {
+      let target = e.target;
+      if (!target.closest) {
+        target = e.target.parentNode;
+      }
+      if (target.closest(".sortable-chosen")) {
         e.preventDefault();
       }
     });
